@@ -101,11 +101,21 @@ const CloudBorder = styled.div`
   }
 `;
 
-const LetterText = styled.p`
+const LetterHeading = styled.h1`
+  margin: 0 0 12px 0;
+  color: #0b2f5a;
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 700;
+  font-family: 'Aptos' system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+`;
+
+const LetterParagraph = styled.p`
   margin: 0;
   color: #0b2f5a;
   line-height: 1.75;
   font-size: 16px;
+  font-family: 'Forte', Georgia, 'Times New Roman', serif;
 `;
 
 const Letter = ({ onBack }) => {
@@ -116,10 +126,10 @@ const Letter = ({ onBack }) => {
         <BottomRightHeart />
         <LetterBody>
           <CloudBorder>
-            <LetterText>
-              Dear [Recipient's Name],<br /><br />
-              I hope this letter finds you well. I wanted to take a moment to express my gratitude for your support and love. Your kindness and encouragement have meant a lot to me. I love you very much.<br /><br />
-            </LetterText>
+            <LetterHeading>Dear Catrina,</LetterHeading>
+            <LetterParagraph>
+              I hope this letter finds you well. I wanted to take a moment to express my gratitude for your support and love. Your kindness and encouragement have meant a lot to me. I love you very much.
+            </LetterParagraph>
           </CloudBorder>
         </LetterBody>
       </LetterContent>
