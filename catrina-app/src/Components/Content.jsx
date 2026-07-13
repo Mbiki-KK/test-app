@@ -24,7 +24,7 @@ const Envelope = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   overflow: hidden;
-  transition: all 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.25s ease, box-shadow 0.25s ease;
   transform: ${({ opened }) => (opened ? 'rotate(-5deg) scale(1.05)' : 'rotate(0deg) scale(1)')};
 
   &:hover {
@@ -40,6 +40,7 @@ const EnvelopeLine = styled.div`
   height: 2px;
   background-color: #110e63;
   transform: translateY(-50%);
+  z-index: 1;
 `;
 
 const EnvelopeFold = styled.div`
@@ -48,12 +49,16 @@ const EnvelopeFold = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  background-color: #110e63;
   border-top: 90px solid transparent;
-  border-right: 130px solid transparent;
-  border-bottom: 90px solid transparent;
-  border-left: 130px solid #110e63;
+  border-right: -90px solid transparent;
+  // border-bottom: 10px solid transparent;
+  // border-left: 50px solid #110e63;
   opacity: 0.18;
+  inset: 0;
   pointer-events: none;
+  z-index: 1;
 `;
 
 const EnvelopeText = styled.p`
