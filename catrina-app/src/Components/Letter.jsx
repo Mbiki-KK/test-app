@@ -56,11 +56,19 @@ const CornerHeart = styled.div`
 const TopLeftHeart = styled(CornerHeart)`
   top: 16px;
   left: 16px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: rotate(-45deg) scale(1.2);
+  }
 `;
 
 const BottomRightHeart = styled(CornerHeart)`
   bottom: 16px;
   right: 16px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: rotate(-45deg) scale(1.2);
+  }
 `;
 
 const LetterBody = styled.div`
@@ -136,7 +144,6 @@ const Letter = ({ onBack }) => {
           </CloudBorder>
         </LetterBody>
       </LetterContent>
-
       <BackButton onClick={onBack} />
     </LetterContainer>
   )
