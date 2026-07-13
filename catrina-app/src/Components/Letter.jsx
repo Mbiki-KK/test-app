@@ -128,7 +128,10 @@ const Letter = ({ onBack }) => {
           <CloudBorder>
             <LetterHeading>Dear Catrina,</LetterHeading>
             <LetterParagraph>
-              I hope this letter finds you well. I wanted to take a moment to express my gratitude for your support and love. Your kindness and encouragement have meant a lot to me. I love you very much.
+              I hope this letter finds you well. 
+              I wanted to take a moment to express my gratitude for your support and love. 
+              Your kindness and encouragement have meant a lot to me. 
+              I love you very much.
             </LetterParagraph>
           </CloudBorder>
         </LetterBody>
