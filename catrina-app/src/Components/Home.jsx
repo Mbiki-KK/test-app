@@ -15,15 +15,21 @@ const Home = () => {
   const [showContent, setShowContent] = React.useState(false);
   const [view, setView] = React.useState(false);
 
+  if (view === 'content') {
+    return <Content onBack={() => setView('home')} />;
+  }
+  if (view === 'letter') {
+    return <Content onBack={() => setView('content')} />;
+  }
+
   if (showContent) {
-    return <Content />;
+    return <Content onBack={() => setShowContent(false)}/>;
   }
   return (
     <StyledHome>
       <h2>Welcome to the Home Page</h2>
       <p>To go to the next page, click the button below:</p>
-      <Button onDoubleclick={() => setShowContent(true)}/>
-      {/* {view === 'content' && <Content />} */}
+      <Button onDoubleclick={() => setView('content')}/>
     </StyledHome>
   )
 }

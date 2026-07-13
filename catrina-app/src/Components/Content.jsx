@@ -1,80 +1,107 @@
 import React from 'react'
 import styled from 'styled-components'
+import Letter from './Letter'
+import BackButton from './BackButton'
 
 const Page = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 40px;
-`;
-
-const Envelope = styled.div`
-  width: 260px;
-  height: 180px;
-  position: relative;
-  border: 2px solid #110e63;
-  border-radius: 8px;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 24px;
-  color: #110e63;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+  justify-content: center;
+  row-gap: 20px;
+  margin-top: 40px;
+`
+
+const Envelope = styled.div`
+  position: relative;
+  width: 300px;
+  height: 180px;
+  border: 2px solid #0b2f5a;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #d5e8ff 0%, #f4f8ff 100%);
+  box-shadow: 0 16px 30px rgba(11, 47, 90, 0.15);
   overflow: hidden;
-  transition: all 0.25s ease, box-shadow 0.25s ease;
-  transform: ${({ opened }) => (opened ? 'rotate(-5deg) scale(1.05)' : 'rotate(0deg) scale(1)')};
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 34px rgba(11, 47, 90, 0.2);
   }
-`;
+`
 
-const EnvelopeLine = styled.div`
+const EnvelopeFlap = styled.div`
   position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #110e63;
-  transform: translateY(-50%);
-  z-index: 1;
-`;
-
-const EnvelopeFold = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  clip-path: polygon(0 0, 100% 0, 50% 50%);
-  background-color: #110e63;
-  border-top: 90px solid transparent;
-  border-right: -90px solid transparent;
-  // border-bottom: 10px solid transparent;
-  // border-left: 50px solid #110e63;
-  opacity: 0.18;
   inset: 0;
-  pointer-events: none;
+  background: linear-gradient(135deg, #a9cbff 0%, #d5e8ff 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 48%);
   z-index: 1;
-`;
+`
 
-const EnvelopeText = styled.p`
-  margin: 0;
-  position: relative;
-  z-index: 1;
-`;
+const CenterLine = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: rgba(11, 47, 90, 0.2);
+  transform: translateY(-50%);
+  z-index: 0;
+`
 
-const Content = () => {
+const Seal = styled.div`
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #eef5ff;
+  border: 3px solid #0b2f5a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 8px 18px rgba(11, 47, 90, 0.14);
+`
+
+const Heart = styled.div`
+  width: 18px;
+  height: 18px;
+  background: #0b2f5a;
+  clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 80%, 18% 100%, 0% 35%);
+`
+
+const Label = styled.div`
+  position: absolute;
+  bottom: 16px;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  color: #0b2f5a;
+  z-index: 3;
+`
+
+const Content = ({ onBack }) => {
+  const [opened, setOpened] = React.useState(false)
+
+  if (opened) {
+    return <Letter onBack={() => setOpened(false)} />
+  }
+
   return (
     <Page>
-      <Envelope>
-        <EnvelopeFold />
-        <EnvelopeLine />
-        <EnvelopeText>Open me</EnvelopeText>
+      <Envelope onClick={() => setOpened(true)}>
+        <EnvelopeFlap />
+        <CenterLine />
+        <Seal>
+          <Heart />
+        </Seal>
+        <Label>Open me</Label>
       </Envelope>
+
+      <BackButton onClick={onBack} />
     </Page>
   )
 }
