@@ -67,10 +67,31 @@ const Seal = styled.div`
 `
 
 const Heart = styled.div`
+  position: relative;
   width: 18px;
   height: 18px;
   background: #0b2f5a;
-  clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 80%, 18% 100%, 0% 35%);
+  transform: rotate(-45deg);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #0b2f5a;
+    border-radius: 50%;
+  }
+
+  &::before {
+    top: -9px;
+    left: 0;
+  }
+
+  &::after {
+    top: 0;
+    left: 9px;
+  }
 `
 
 const Label = styled.div`

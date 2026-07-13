@@ -7,15 +7,20 @@ const LetterContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 24px;
   height: 100vh;
 `;
 
 const LetterContent = styled.div`
   width: 420px;
   padding: 48px;
+  color: #0b2f5a;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
   border: 2px solid #0b2f5a;
   border-radius: 16px;
-  background: #ffffff;
+  background: #949cf7;
   box-shadow: 0 16px 30px rgba(11, 47, 90, 0.12);
   position: relative;
 `;
@@ -59,12 +64,48 @@ const BottomRightHeart = styled(CornerHeart)`
 `;
 
 const LetterBody = styled.div`
-  min-height: 280px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: transparent;
+  color: #0b2f5a;
+`;
+
+const CloudBorder = styled.div`
+  width: 100%;
+  padding: 32px 28px;
+  border-radius: 28px;
+  background: #e8f4ff;
+  border: 2px solid rgba(11, 47, 90, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: #e8f4ff;
+    border-radius: 50%;
+  }
+
+  &::before {
+    top: -18px;
+    left: 24px;
+  }
+
+  &::after {
+    bottom: -18px;
+    right: 24px;
+  }
+`;
+
+const LetterText = styled.p`
+  margin: 0;
+  color: #0b2f5a;
+  line-height: 1.75;
+  font-size: 16px;
 `;
 
 const Letter = ({ onBack }) => {
@@ -74,7 +115,12 @@ const Letter = ({ onBack }) => {
         <TopLeftHeart />
         <BottomRightHeart />
         <LetterBody>
-          <p> </p>
+          <CloudBorder>
+            <LetterText>
+              Dear [Recipient's Name],<br /><br />
+              I hope this letter finds you well. I wanted to take a moment to express my gratitude for your support and love. Your kindness and encouragement have meant a lot to me. I love you very much.<br /><br />
+            </LetterText>
+          </CloudBorder>
         </LetterBody>
       </LetterContent>
 
