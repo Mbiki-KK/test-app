@@ -70,7 +70,7 @@ const Heart = styled.div`
   position: relative;
   width: 18px;
   height: 18px;
-  background: #0b2f5a;
+  background: #f700ff;
   transform: rotate(-45deg);
 
   &::before,
@@ -79,7 +79,7 @@ const Heart = styled.div`
     position: absolute;
     width: 18px;
     height: 18px;
-    background: #0b2f5a;
+    background: #ff00f2;
     border-radius: 50%;
   }
 

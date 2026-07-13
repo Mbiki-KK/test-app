@@ -29,7 +29,7 @@ const CornerHeart = styled.div`
   position: absolute;
   width: 24px;
   height: 24px;
-  background: #0b2f5a;
+  background: #ff00c8;
   transform: rotate(-45deg);
 
   &::before,
@@ -38,7 +38,7 @@ const CornerHeart = styled.div`
     position: absolute;
     width: 24px;
     height: 24px;
-    background: #0b2f5a;
+    background: #ff00c8;
     border-radius: 50%;
   }
 
