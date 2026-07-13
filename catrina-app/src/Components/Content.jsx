@@ -100,9 +100,11 @@ const Label = styled.div`
   width: 100%;
   text-align: center;
   font-weight: 700;
+  font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+  font-size: 28px;
   color: #0b2f5a;
   z-index: 3;
-`
+`;
 
 const Content = ({ onBack }) => {
   const [opened, setOpened] = React.useState(false)

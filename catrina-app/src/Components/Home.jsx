@@ -11,6 +11,22 @@ const StyledHome = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+const StyledHeading = styled.h2`
+  font-size: 35px;
+  color: #0b2f5a;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Aptos', 'Segoe UI', sans-serif;
+`;
+
+const StyledParagraph = styled.p`
+  font-size: 35px;
+  color: #0b2f5a;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+`;
 const Home = () => {
   const [showContent, setShowContent] = React.useState(false);
   const [view, setView] = React.useState(false);
@@ -27,8 +43,8 @@ const Home = () => {
   }
   return (
     <StyledHome>
-      <h2>Welcome to the Home Page</h2>
-      <p>To go to the next page, click the button below:</p>
+      <StyledHeading>Welcome to My website</StyledHeading>
+      <StyledParagraph>I have a present for you, click the button below:</StyledParagraph>
       <Button onDoubleclick={() => setView('content')}/>
     </StyledHome>
   )

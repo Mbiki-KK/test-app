@@ -12,7 +12,7 @@ const StyledHeader = styles.header`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
-const StyledHeading = styles.h1`
+const StyledHeading = styles.h2`
   margin: 0;
   font-family: 'Aptos', 'Segoe UI', sans-serif;
   font-size: 2rem;
