@@ -1,5 +1,4 @@
 // import logo from './logo.svg';
-import styles from 'styled-components';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import styled from 'styled-components';
