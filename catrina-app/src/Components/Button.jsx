@@ -21,10 +21,9 @@ const StyledButton = styled.button`
 
 const Button = ({onDoubleclick}) => {
   return (
-    <div>
-      <StyledButton onDoubleClick={onDoubleclick}>Click Me!</StyledButton>
-
-    </div>
+      <StyledButton onDoubleClick={onDoubleclick}>
+        Click Me!
+      </StyledButton>
   )
 }
 
