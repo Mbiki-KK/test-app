@@ -162,7 +162,7 @@ const Letter = ({ onBack }) => {
               </LetterParagraph>
             </CloudBorder>
           </LetterBody>
-        </LetterContent><BackButton onClick={onBack} /></> 
+        </LetterContent><BackButton onClick={onBack} /></> // can only accept one child, so wrapped the letter and back button in a fragment
       }
     </LetterContainer>
   )
