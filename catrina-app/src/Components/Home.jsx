@@ -44,7 +44,7 @@ const Home = () => {
   return (
     <StyledHome>
       <StyledHeading>Welcome to My website</StyledHeading>
-      <StyledParagraph>I have a present for you, click the button below:</StyledParagraph>
+      <StyledParagraph>I have a present for you, double click the button below:</StyledParagraph>
       <Button onDoubleclick={() => setView('content')}/>
     </StyledHome>
   )

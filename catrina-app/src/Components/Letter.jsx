@@ -158,8 +158,9 @@ const Letter = ({ onBack }) => {
                 I hope this letter finds you well.
                 I wanted to take a moment to express my gratitude for your support and love.
                 Your kindness and encouragement have meant a lot to me.
-                I love you very much.
+                I love you very much and I will cherish you always.
               </LetterParagraph>
+              <LetterHeading>From KK ,With love</LetterHeading>
             </CloudBorder>
           </LetterBody>
         </LetterContent><BackButton onClick={onBack} /></> // can only accept one child, so wrapped the letter and back button in a fragment
