@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import BackButton from './BackButton';
+import { BounceLoader } from "react-spinners"
 
 const LetterContainer = styled.div`
   display: flex;
@@ -127,24 +128,42 @@ const LetterParagraph = styled.p`
 `;
 
 const Letter = ({ onBack }) => {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500); // Simulate a loading time of 2.5 seconds
+    
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <LetterContainer>
-      <LetterContent>
-        <TopLeftHeart />
-        <BottomRightHeart />
-        <LetterBody>
-          <CloudBorder>
-            <LetterHeading>Dear Catrina,</LetterHeading>
-            <LetterParagraph>
-              I hope this letter finds you well. 
-              I wanted to take a moment to express my gratitude for your support and love. 
-              Your kindness and encouragement have meant a lot to me. 
-              I love you very much.
-            </LetterParagraph>
-          </CloudBorder>
-        </LetterBody>
-      </LetterContent>
-      <BackButton onClick={onBack} />
+      {loading ? 
+        <BounceLoader
+        color={"#ff00f2"}
+        loading={loading}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+      : 
+      <><LetterContent>
+          <TopLeftHeart />
+          <BottomRightHeart />
+          <LetterBody>
+            <CloudBorder>
+              <LetterHeading>Dear Catrina,</LetterHeading>
+              <LetterParagraph>
+                I hope this letter finds you well.
+                I wanted to take a moment to express my gratitude for your support and love.
+                Your kindness and encouragement have meant a lot to me.
+                I love you very much.
+              </LetterParagraph>
+            </CloudBorder>
+          </LetterBody>
+        </LetterContent><BackButton onClick={onBack} /></> 
+      }
     </LetterContainer>
   )
 }
